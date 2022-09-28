@@ -1,55 +1,184 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Abu | Web Developer💻</title>
-        <link rel="shortcut icon" href="images/man.png" type="image/x-icon">
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <style>
-            html{
-                padding: 0;
-                margin: 0;
-                background-color: black;
-            }
-            .soon h2{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 4rem;
-                letter-spacing: 20px;
-                padding: 14rem 0;
-            }
-            .soon h2{
-                position: relative;
-                overflow: hidden;
-                background: linear-gradient(90deg, #000, rgb(255, 255, 255), #000);
-                background-repeat: no-repeat;
-                opacity: 4rem;
-                background-size: 80%;
-                letter-spacing: 8px;
-                animation: animate 3s linear infinite;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }       
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills Bar</title>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid; height: 100%;
+  place-items: center;
+  background-color: rgb(0, 0, 0);
+}
+h1{
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+  text-transform: capitalize;
+}
+.skill-bars{
+  padding: 70px 30px;
+  width: 900px; 
+  height: 400px;
+  background: rgb(167, 164, 164);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+.bar{
+  margin: 20px 0;
+  padding: 8px 0;
+}
+.bar:first-child{
+  margin-top: 0px;
+}
+.info{
+  margin-bottom: 5px;
+}
+.info span{
+  font-weight: 500;
+  font-size: 17px; opacity: 0;
+  animation: showText 0.5s 1s linear forwards;
+}
+@keyframes showText {
+  100%{
+    opacity: 1;
+  }
+}
+.progress-line{
+  height: 10px; width: 100%;
+  background: #f0f0f0; position: relative;
+  transform: scaleX(0); transform-origin: left;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
+              0 1px rgba(255,255,255,0.8);
+  animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.progress-line span{
+  height: 100%; position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #ff4d4f;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.progress-line span::before{
+  position: absolute; content: "";
+  top: -10px; right: 0;
+  height: 0; width: 0; opacity: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+.progress-line span::after{
+  position: absolute; top: -28px;
+  right: 0; font-weight: 500;
+  background: #000;
+  color: #fff; opacity: 0;
+  padding: 1px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.html span{
+  width: 82%;
+}
+.css span{
+  width: 87%;
+}
+.JavaScript span{
+  width: 20%;
+}
+.vb span{
+  width: 70%;
+}
+@keyframes showText2 {
+  100%{
+    opacity: 1;
+  }
+}
+.html span::after{
+  content: "82%";
+}
+.css span::after{
+  content: "87%";
+}
+.JavaScript span::after{
+  content: "20%";
+}
+.vb span::after{
+  content: "70%";
+}
 
-            @keyframes animate {
-                0% {
-                background-position: -500%;
-            }
+/* Media Query */
+/* For tablet */
+@media screen and (max-width:900px){
+  h1{
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+  }
+  .skill-bars{
+  padding: 15px 20px;
+  width: 600px; 
+  background: #fff;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  }
 
-                100% {
-                background-position: 500%;
-            }
-                }
-
-        </style>
-    </head>
-    <body>
-        <div class="soon">
-            <h2>近日公開</h2>
-        </div>
-    </body>
+}
+/* For mobile */
+@media screen and (max-width :600px) {
+  h1{
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+  }
+  .skill-bars{
+    padding: 10px 10px;
+    width: 400px; 
+    background: #fff;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
+  
+  }
+  
+}
+    </style>
+  <body>
+    <h1>Skills Bar</h1>
+    <div class="skill-bars">
+      <div class="bar">
+        <div class="info"> <span>HTML</span> </div>
+        <div class="progress-line html"> <span></span> </div>
+      </div>
+      <div class="bar">
+        <div class="info"> <span>CSS</span> </div>
+        <div class="progress-line css"> <span></span> </div>
+      </div>
+      <div class="bar">
+        <div class="info"> <span>Java Script</span> </div>
+        <div class="progress-line JavaScript"> <span></span> </div>
+      </div>
+      <div class="bar">
+        <div class="info"> <span>VB.NET</span> </div>
+        <div class="progress-line vb"> <span></span> </div>
+      </div> 
+    </div>
+  </body>
 </html>
